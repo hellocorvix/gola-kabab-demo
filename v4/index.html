@@ -88,8 +88,8 @@
 
         .hero-logo {
             position: absolute;
-            top: 80px;
-            left: 32px;
+            top: 110px;
+            left: 36px;
             width: 110px;
             height: auto;
             z-index: 25;
@@ -654,8 +654,8 @@
     <div id="content">
         <!-- Act I: Inside the Fire -->
         <section id="act-1">
+            <img src="logo.png" alt="New Dehli Gola Kabab House" class="hero-logo">
             <div class="hero-overlay">
-                <img src="logo.png" alt="New Dehli Gola Kabab House" class="hero-logo">
                 <div class="hero-since">Since 1974</div>
                 <h1 class="hero-title">New Dehli Gola Kabab House</h1>
                 <div class="hero-urdu">نیو دہلی گولا کباب ہاؤس</div>
@@ -1032,7 +1032,7 @@
             const heroTexture = textureLoader.load('hero-fry.jpg');
             const heroPlane = new THREE.Mesh(
                 new THREE.PlaneGeometry(5, 3.5),
-                new THREE.MeshBasicMaterial({ map: heroTexture, transparent: true, opacity: 0 })
+                new THREE.MeshBasicMaterial({ map: heroTexture, transparent: true, opacity: 0, side: THREE.DoubleSide })
             );
             heroPlane.position.set(-3, 0, -2);
             heroPlane.rotation.y = Math.PI * 0.15;
@@ -1041,7 +1041,7 @@
             const spreadTexture = textureLoader.load('spread.jpg');
             const spreadPlane = new THREE.Mesh(
                 new THREE.PlaneGeometry(6, 4),
-                new THREE.MeshBasicMaterial({ map: spreadTexture, transparent: true, opacity: 0 })
+                new THREE.MeshBasicMaterial({ map: spreadTexture, transparent: true, opacity: 0, side: THREE.DoubleSide })
             );
             spreadPlane.position.set(4, 1, -5);
             spreadPlane.rotation.y = -Math.PI * 0.2;
@@ -1050,7 +1050,7 @@
             const interiorTexture = textureLoader.load('interior.jpg');
             const interiorPlane = new THREE.Mesh(
                 new THREE.PlaneGeometry(5.5, 3.8),
-                new THREE.MeshBasicMaterial({ map: interiorTexture, transparent: true, opacity: 0 })
+                new THREE.MeshBasicMaterial({ map: interiorTexture, transparent: true, opacity: 0, side: THREE.DoubleSide })
             );
             interiorPlane.position.set(-5, -1, -8);
             interiorPlane.rotation.y = Math.PI * 0.25;
@@ -1173,11 +1173,37 @@
                     let act = 'I';
                     let actName = 'EMBER';
 
-                    if (progress < 0.2) {
-                        // Act I: Inside the fire (0-20%)
+                    // Film-fraction mapping: the canvas is only visible during the three
+                    // chapter sections (150+120+120vh). Map that window to fp 0..1 so each
+                    // act plays while its section is actually on screen; after the film,
+                    // the canvas is an ambient ember backdrop behind the sections.
+                    const filmFraction = Math.min((3.9 * window.innerHeight) / Math.max(document.body.scrollHeight - window.innerHeight, 1), 0.98);
+                    const fp = progress / filmFraction;
+                    const ramp = (x, a, b) => Math.min(Math.max((x - a) / (b - a), 0), 1);
+
+                    if (fp >= 1) {
+                        // Ambient mode (editorial sections zone)
+                        act = 'III';
+                        actName = 'GOLDEN';
+                        camera.position.set(0, 0.5, 9);
+                        camera.lookAt(0, 0, 0);
+                        disc.position.set(0, 3.4, -3);
+                        disc.scale.set(0.4, 0.4, 0.4);
+                        glow.position.copy(disc.position);
+                        glow.position.z -= 0.5;
+                        glow.scale.copy(disc.scale);
+                        glow.material.opacity = 0.15;
+                        heroPlane.material.opacity = 0;
+                        spreadPlane.material.opacity = 0;
+                        interiorPlane.material.opacity = 0;
+                        warmLight.intensity = 1.2;
+                        warmLight.color.setHex(0xFBBF24);
+                        scene.fog.color.setHex(0x27241F);
+                    } else if (fp < 0.385) {
+                        // Act I: Inside the fire
                         act = 'I';
                         actName = 'EMBER';
-                        const localP = progress / 0.2;
+                        const localP = fp / 0.385;
                         camera.position.set(0, 0, 8 - localP * 3.5); // Dolly z≈8 to z≈4.5
                         disc.position.set(2, 0, 0);
                         disc.scale.set(1, 1, 1);
@@ -1191,11 +1217,11 @@
                         heroPlane.material.opacity = 0;
                         spreadPlane.material.opacity = 0;
                         interiorPlane.material.opacity = 0;
-                    } else if (progress < 0.5) {
-                        // Act II: The Fire (20-50%)
+                    } else if (fp < 0.69) {
+                        // Act II: The Fire
                         act = 'II';
                         actName = 'NOIR';
-                        const localP = (progress - 0.2) / 0.3;
+                        const localP = (fp - 0.385) / 0.305;
                         const angle = localP * (Math.PI * 0.7); // ~70° orbit
                         const radius = 6;
                         camera.position.set(Math.sin(angle) * radius, -0.5, Math.cos(angle) * radius + 4);
@@ -1223,37 +1249,35 @@
                         spreadPlane.material.opacity = 0;
                         interiorPlane.material.opacity = 0;
                     } else {
-                        // Act III: The Table (50-100%)
+                        // Act III: The Table — camera stays in FRONT, arcing laterally;
+                        // the two photo planes take centre stage one at a time with real holds.
                         act = 'III';
                         actName = 'GOLDEN';
-                        const localP = (progress - 0.5) / 0.5;
-                        camera.position.set(4 - localP * 8, 1, -4 + localP * 8);
+                        const localP = Math.min((fp - 0.69) / 0.31, 1);
+                        camera.position.set(3.5 - localP * 7, 0.5, 7.5);
                         camera.lookAt(0, 0, 0);
 
-                        // Disc stays small and high throughout Act III, orbiting gently
-                        disc.position.set(-3 + localP * 2, 4, 3);
-                        disc.scale.set(0.5, 0.5, 0.5);
+                        // Disc small and high, behind the photo stage
+                        disc.position.set(0, 3.4, -2);
+                        disc.scale.set(0.45, 0.45, 0.45);
                         disc.rotation.z += 0.005;
                         glow.position.copy(disc.position);
                         glow.position.z -= 0.5;
                         glow.scale.copy(disc.scale);
                         glow.material.opacity = 0.3;
 
-                        // Hero plate fades out early
-                        heroPlane.material.opacity = Math.max(0, 1 - localP * 3);
+                        heroPlane.material.opacity = 0;
 
-                        // Spread photo solo moment (first 50% of act)
-                        const spreadPhase = Math.min(localP / 0.5, 1);
-                        spreadPlane.material.opacity = spreadPhase < 0.85 ? spreadPhase * 0.9 : Math.max(0, 0.9 - (spreadPhase - 0.85) * 3);
-                        spreadPlane.position.set(0, 0, 0);
-                        spreadPlane.rotation.y = 0;
+                        // Spread photo: in 0.03-0.15, HOLD, out 0.42-0.50 (centre stage, z=1.5)
+                        spreadPlane.material.opacity = ramp(localP, 0.03, 0.15) * (1 - ramp(localP, 0.42, 0.50)) * 0.97;
+                        spreadPlane.position.set(0, 0, 1.5);
+                        spreadPlane.rotation.set(0, 0, 0);
                         spreadPlane.scale.set(1.3, 1.3, 1.3);
 
-                        // Interior photo solo moment (second 50% of act)
-                        const interiorPhase = Math.max((localP - 0.5) / 0.5, 0);
-                        interiorPlane.material.opacity = interiorPhase * 0.85;
-                        interiorPlane.position.set(-1, -0.5, 2);
-                        interiorPlane.rotation.y = 0;
+                        // Interior photo: in 0.55-0.68, HOLD, out 0.93-1.00 (same stage spot)
+                        interiorPlane.material.opacity = ramp(localP, 0.55, 0.68) * (1 - ramp(localP, 0.93, 1.0)) * 0.97;
+                        interiorPlane.position.set(0, 0, 1.5);
+                        interiorPlane.rotation.set(0, 0, 0);
                         interiorPlane.scale.set(1.25, 1.25, 1.25);
 
                         warmLight.intensity = 2 + localP * 0.5;
