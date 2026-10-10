@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -104,6 +104,14 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
+        .hero-logo {
+            width: 96px;
+            height: auto;
+            margin: 0 auto 24px;
+            display: block;
+            filter: drop-shadow(0 0 16px rgba(161, 98, 7, 0.6));
+        }
+
         .hero-since {
             font-family: 'Cormorant', serif;
             font-weight: 600;
@@ -125,10 +133,12 @@
         }
 
         .hero-urdu {
+            font-family: 'Noto Nastaliq Urdu', serif;
             font-size: 20px;
             color: white;
             margin-bottom: 16px;
             direction: rtl;
+            line-height: 2;
         }
 
         .hero-tagline {
@@ -609,12 +619,21 @@
             text-align: center;
         }
 
+        .footer-logo {
+            width: 56px;
+            height: auto;
+            margin: 0 auto 16px;
+            display: block;
+            opacity: 0.9;
+        }
+
         .footer-name {
-            font-family: 'Cormorant', serif;
+            font-family: 'Noto Nastaliq Urdu', serif;
             font-weight: 600;
             font-size: 24px;
             color: var(--color-accent);
             margin-bottom: 12px;
+            line-height: 2;
         }
 
         .footer-location {
@@ -739,6 +758,7 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="hero-content">
+                <img src="logo.png" alt="New Dehli Gola Kabab House Logo" class="hero-logo">
                 <div class="hero-since">Since 1974</div>
                 <h1 class="hero-title">New Dehli Gola Kabab House</h1>
                 <div class="hero-urdu">نیو دہلی گولا کباب ہاؤس</div>
@@ -1034,7 +1054,8 @@
 
         <!-- Footer -->
         <footer>
-            <div class="footer-name">New Dehli Gola Kabab House</div>
+            <img src="logo.png" alt="New Dehli Gola Kabab House Logo" class="footer-logo">
+            <div class="footer-name">نیو دہلی گولا کباب ہاؤس</div>
             <div class="footer-location">Burns Road Food Street, Karachi • Since 1974</div>
             <div class="footer-credit">Demo website crafted by <a href="https://corvix.netlify.app" target="_blank">Corvix Studio</a></div>
         </footer>
