@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Dehli Gola Kabab House | Since 1974 | Burns Road</title>
+    <meta name="description" content="Since 1974, New Dehli Gola Kabab House has served legendary BBQ on Burns Road, Karachi. Live BBQ, Family Hall, Koyla Karahi. Order now.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --charcoal: #0e0d0b;
+            --ivory: #ece7db;
+            --bronze: #c9962e;
+            --ember: #EA580C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--charcoal);
+            color: var(--ivory);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Fixed WebGL Canvas - The World */
+        #webgl-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Timecode Header */
+        #timecode {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--bronze);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            z-index: 100;
+            opacity: 0.9;
+        }
+
+        /* Content Layer */
+        #content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Film Section - Act I */
+        #act-1 {
+            position: relative;
+            height: 150vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .hero-logo {
+            width: 96px;
+            height: auto;
+            margin: 0 auto 24px;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(201, 150, 46, 0.8));
+        }
+
+        .hero-since {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--bronze);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: clamp(48px, 8vw, 96px);
+            line-height: 1.1;
+            color: var(--ivory);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-urdu {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: clamp(24px, 4vw, 36px);
+            color: var(--ivory);
+            margin-bottom: 24px;
+            direction: rtl;
+            line-height: 2.2;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-ratings {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .rating-chip {
+            padding: 8px 16px;
+            background: rgba(14, 13, 11, 0.6);
+            border: 1px solid rgba(201, 150, 46, 0.4);
+            border-radius: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--bronze);
+            text-shadow: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-cue {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            color: rgba(236, 231, 219, 0.6);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 48px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Act II & III - Chapter Sections */
+        .act-section {
+            position: relative;
+            height: 120vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .act-title {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 24px;
+        }
+
+        .act-title h2 {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: clamp(56px, 10vw, 120px);
+            line-height: 1.1;
+            color: var(--ivory);
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+        }
+
+        .act-title p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 2.5vw, 20px);
+            line-height: 1.6;
+            color: rgba(236, 231, 219, 0.9);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Stats Section - Act III */
+        #act-3-stats {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats-overlay {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: clamp(32px, 8vw, 80px);
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+
+        .stat-huge {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: clamp(80px, 15vw, 180px);
+            line-height: 1;
+            color: var(--bronze);
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label-small {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(12px, 2vw, 14px);
+            color: rgba(236, 231, 219, 0.7);
+            margin-top: 8px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Editorial Sections - After Film */
+        #signatures {
+            position: relative;
+            padding: 120px 24px;
+            background: rgba(14, 13, 11, 0.85);
+            backdrop-filter: blur(30px);
+        }
+
+        .section-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: clamp(40px, 6vw, 64px);
+            color: var(--ivory);
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -0.02em;
+        }
+
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dish-card {
+            position: relative;
+            background: rgba(28, 25, 23, 0.6);
+            border: 1px solid rgba(201, 150, 46, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .dish-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(201, 150, 46, 0.2);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .dish-info {
+            padding: 24px;
+        }
+
+        .dish-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--bronze);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .dish-name {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--ivory);
+            margin-bottom: 8px;
+        }
+
+        .dish-descriptor {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            color: rgba(236, 231, 219, 0.6);
+            margin-bottom: 12px;
+        }
+
+        .dish-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--ivory);
+        }
+
+        /* Menu Section */
+        #menu {
+            position: relative;
+            padding: 120px 24px;
+            background: rgba(22, 20, 17, 0.9);
+            backdrop-filter: blur(30px);
+        }
+
+        .menu-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 64px;
+        }
+
+        .menu-category {
+            opacity: 0;
+        }
+
+        .category-name {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--bronze);
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(201, 150, 46, 0.15);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--ivory);
+            flex: 1;
+        }
+
+        .item-meta {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            color: rgba(236, 231, 219, 0.5);
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--bronze);
+            white-space: nowrap;
+        }
+
+        /* Visit Section */
+        #visit {
+            position: relative;
+            padding: 120px 24px;
+            background: rgba(14, 13, 11, 0.85);
+            backdrop-filter: blur(30px);
+        }
+
+        .visit-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(28, 25, 23, 0.5);
+            border: 1px solid rgba(201, 150, 46, 0.3);
+            border-radius: 20px;
+            padding: 64px 48px;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+
+        .visit-column h3 {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: 40px;
+            color: var(--ivory);
+            margin-bottom: 24px;
+        }
+
+        .visit-column h4 {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--ivory);
+            margin-bottom: 20px;
+        }
+
+        .visit-address,
+        .visit-hours,
+        .visit-features {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--ivory);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .visit-hours {
+            color: var(--bronze);
+            font-weight: 600;
+        }
+
+        .contact-phone {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--ivory);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-phone:hover {
+            color: var(--bronze);
+        }
+
+        .maps-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            margin-top: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--ivory);
+            background: transparent;
+            border: 1px solid var(--bronze);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .maps-btn:hover {
+            background: var(--bronze);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* Order Band */
+        #order-band {
+            position: relative;
+            padding: 100px 24px;
+            background: linear-gradient(135deg, #EA580C, #C2410C);
+            text-align: center;
+        }
+
+        .order-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6vw, 56px);
+            color: white;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 48px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 24px;
+            background: #0a0908;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 64px;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .footer-name {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--bronze);
+            margin-bottom: 16px;
+            line-height: 2.2;
+        }
+
+        .footer-location {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(236, 231, 219, 0.6);
+            margin-bottom: 40px;
+        }
+
+        .footer-credit {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            color: rgba(236, 231, 219, 0.4);
+        }
+
+        .footer-credit a {
+            color: rgba(236, 231, 219, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: var(--bronze);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #timecode {
+                font-size: 9px;
+                top: 16px;
+                left: 16px;
+            }
+
+            .hero-logo {
+                width: 72px;
+            }
+
+            .visit-container {
+                padding: 40px 28px;
+            }
+
+            .signatures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        /* Fallback for no WebGL / reduced motion */
+        .no-webgl #webgl-canvas {
+            display: none;
+        }
+
+        .no-webgl #act-1 {
+            background: linear-gradient(135deg, rgba(14, 13, 11, 0.92), rgba(12, 10, 9, 0.95)),
+                        url('hero-fry.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            #webgl-canvas {
+                display: none;
+            }
+
+            #act-1 {
+                background: linear-gradient(135deg, rgba(14, 13, 11, 0.92), rgba(12, 10, 9, 0.95)),
+                            url('hero-fry.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="webgl-canvas"></canvas>
+    <div id="timecode">ACT I — 00:00</div>
+
+    <div id="content">
+        <!-- Act I: Inside the Fire -->
+        <section id="act-1">
+            <div class="hero-overlay">
+                <img src="logo.png" alt="New Dehli Gola Kabab House" class="hero-logo">
+                <div class="hero-since">Since 1974</div>
+                <h1 class="hero-title">New Dehli Gola Kabab House</h1>
+                <div class="hero-urdu">نیو دہلی گولا کباب ہاؤس</div>
+                <div class="hero-ratings">
+                    <span class="rating-chip">4.3★ · 1,300+ Reviews</span>
+                    <span class="rating-chip">4.8★ · 5,000+ Orders</span>
+                </div>
+                <div class="scroll-cue">Scroll to explore</div>
+            </div>
+        </section>
+
+        <!-- Act II: The Fire -->
+        <section id="act-2" class="act-section">
+            <div class="act-title">
+                <h2>Live BBQ. Koyla Fire.</h2>
+                <p>Every kabab is threaded, seasoned, and grilled over live coals—the dhaga style that made us famous. No shortcuts. No compromises. Just fire, spice, and fifty years of knowing exactly when to flip the skewer.</p>
+            </div>
+        </section>
+
+        <!-- Act III: The Table -->
+        <section id="act-3" class="act-section">
+            <div class="act-title">
+                <h2>The Table Awaits</h2>
+                <p>Beef Dhaga Kabab Fry sizzling on branded plates. Malai Boti so tender it melts. Chandan Kabab skewers lined like gold. This is the Burns Road feast that has fed Karachi for half a century.</p>
+            </div>
+        </section>
+
+        <!-- Act III: Stats -->
+        <section id="act-3-stats">
+            <div class="stats-overlay">
+                <div class="stats-row">
+                    <div>
+                        <div class="stat-huge">1974</div>
+                        <div class="stat-label-small">Founded</div>
+                    </div>
+                    <div>
+                        <div class="stat-huge">4.3</div>
+                        <div class="stat-label-small">Google</div>
+                    </div>
+                    <div>
+                        <div class="stat-huge">4.8</div>
+                        <div class="stat-label-small">foodpanda</div>
+                    </div>
+                    <div>
+                        <div class="stat-huge">5,000+</div>
+                        <div class="stat-label-small">Orders</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signatures Section -->
+        <section id="signatures">
+            <h2 class="section-title">Signature Dishes</h2>
+            <div class="signatures-grid">
+                <div class="dish-card">
+                    <img class="dish-image" src="hero-fry.jpg" alt="Beef Dhaga Kabab Fry">
+                    <div class="dish-info">
+                        <span class="dish-badge">The Legend</span>
+                        <h3 class="dish-name">Beef Dhaga Kabab Fry</h3>
+                        <div class="dish-price">Rs 950</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img class="dish-image" src="dish-3.jpg" alt="Beef Dhaga Kabab">
+                    <div class="dish-info">
+                        <h3 class="dish-name">Beef Dhaga Kabab</h3>
+                        <div class="dish-descriptor">2 Seekh</div>
+                        <div class="dish-price">Rs 825</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img class="dish-image" src="dish-5.jpg" alt="Chicken Malai Boti">
+                    <div class="dish-info">
+                        <span class="dish-badge">Burns Road ka famous</span>
+                        <h3 class="dish-name">Chicken Malai Boti</h3>
+                        <div class="dish-price">Rs 920</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img class="dish-image" src="dish-4.jpg" alt="Beef Boti">
+                    <div class="dish-info">
+                        <h3 class="dish-name">Beef Boti</h3>
+                        <div class="dish-descriptor">2 Seekh</div>
+                        <div class="dish-price">Rs 910</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img class="dish-image" src="dish-6.jpg" alt="Chandan Kabab">
+                    <div class="dish-info">
+                        <h3 class="dish-name">Chandan Kabab</h3>
+                        <div class="dish-descriptor">2 Seekh / 4 Pcs</div>
+                        <div class="dish-price">Rs 890</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Menu -->
+        <section id="menu">
+            <div class="menu-container">
+                <h2 class="section-title">The Full Menu</h2>
+                <div class="menu-grid">
+                    <div class="menu-category">
+                        <h3 class="category-name">Bar B.Q</h3>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Beef Dhaga Kabab Fry</div>
+                                <div class="item-meta">Serves 1</div>
+                            </div>
+                            <div class="item-price">Rs 950</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Dhaga Kabab Fry</div>
+                                <div class="item-meta">Serves 1</div>
+                            </div>
+                            <div class="item-price">Rs 1,050</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Beef Dhaga Kabab</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 825</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Beef Bagher Dhaga Kabab</div>
+                            <div class="item-price">Rs 880</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Dhaga Kabab</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 828</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Beef Boti</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 910</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Boti</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 920</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Malai Boti</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 920</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Labnese Boti</div>
+                                <div class="item-meta">2 Seekh</div>
+                            </div>
+                            <div class="item-price">Rs 920</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Reshmi Kabab</div>
+                                <div class="item-meta">2 Seekh/4 Pcs</div>
+                            </div>
+                            <div class="item-price">Rs 828</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chandan Kabab</div>
+                                <div class="item-meta">2 Seekh/4 Pcs</div>
+                            </div>
+                            <div class="item-price">Rs 890</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Chatakh Boti</div>
+                                <div class="item-meta">Mayo Sauce</div>
+                            </div>
+                            <div class="item-price">Rs 950</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Tikka</div>
+                                <div class="item-meta">1 Piece</div>
+                            </div>
+                            <div class="item-price">Rs 670</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Mexican Tikka</div>
+                                <div class="item-meta">Mayo Garlic</div>
+                            </div>
+                            <div class="item-price">Rs 760</div>
+                        </div>
+                        <div class="menu-item">
+                            <div>
+                                <div class="item-name">Chicken Chaanp</div>
+                                <div class="item-meta">1 Serve</div>
+                            </div>
+                            <div class="item-price">Rs 600</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3 class="category-name">Rolls</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Chicken Malai Boti Roll</div>
+                            <div class="item-price">Rs 640</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Chicken Boti Roll</div>
+                            <div class="item-price">Rs 600</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Beef Boti Roll</div>
+                            <div class="item-price">Rs 520</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Beef Kabab Roll</div>
+                            <div class="item-price">Rs 450</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h3 class="category-name">Tandoor & Dessert</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Paratha</div>
+                            <div class="item-price">Rs 140</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Naan</div>
+                            <div class="item-price">Rs 40</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Special Matka Ice Cream</div>
+                            <div class="item-price">Rs 170</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit Section -->
+        <section id="visit">
+            <div class="visit-container">
+                <div class="visit-grid">
+                    <div class="visit-column">
+                        <h3>Visit the House</h3>
+                        <p class="visit-address">Shahrah-e-Liaquat, Gari Khata, Burns Road, Karachi 74800</p>
+                        <p class="visit-hours">Open daily 11:00 AM – 2:00 AM</p>
+                        <p class="visit-features">Live BBQ • Family Hall • Valet Parking • Dine-Out Service</p>
+                    </div>
+                    <div class="visit-column">
+                        <h4>Get in Touch</h4>
+                        <a href="tel:03172555896" class="contact-phone">0317 2555896</a>
+                        <a href="tel:03041401409" class="contact-phone">0304 1401409</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=24.857266,67.0164024" target="_blank" class="maps-btn">
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Band -->
+        <section id="order-band">
+            <h2 class="order-title">Order ab. Seedha WhatsApp par.</h2>
+            <a href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" class="whatsapp-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp Order
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <img src="logo.png" alt="New Dehli Gola Kabab House" class="footer-logo">
+            <div class="footer-name">نیو دہلی گولا کباب ہاؤس</div>
+            <div class="footer-location">Burns Road Food Street, Karachi • Since 1974</div>
+            <div class="footer-credit">Demo website crafted by <a href="https://corvix.netlify.app" target="_blank">Corvix Studio</a></div>
+        </footer>
+    </div>
+
+    <script src="three.min.js"></script>
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="lenis.min.js"></script>
+
+    <script>
+        // Fallback check
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const canvas = document.getElementById('webgl-canvas');
+        const timecode = document.getElementById('timecode');
+
+        if (prefersReducedMotion || !window.THREE) {
+            document.body.classList.add('no-webgl');
+            if (timecode) timecode.style.display = 'none';
+        }
+
+        if (window.THREE && !prefersReducedMotion) {
+            // Scene setup
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x0e0d0b, 15, 60);
+
+            const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 0, 8);
+
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+            scene.add(ambientLight);
+
+            const warmLight = new THREE.PointLight(0xEA580C, 4, 40);
+            warmLight.position.set(5, 5, 8);
+            scene.add(warmLight);
+
+            const rimLight = new THREE.DirectionalLight(0xc9962e, 1.5);
+            rimLight.position.set(-8, 3, -5);
+            scene.add(rimLight);
+
+            // Texture Loader
+            const textureLoader = new THREE.TextureLoader();
+
+            // Disc with plate-float.png texture
+            const dishTexture = textureLoader.load('plate-float.png');
+            const discSize = window.innerWidth < 768 ? 3.5 : 4.5; // Mobile: ≥70% screen width
+            const discGeometry = new THREE.CircleGeometry(discSize, 64);
+            const discMaterial = new THREE.MeshBasicMaterial({
+                map: dishTexture,
+                transparent: true,
+                alphaTest: 0.45,
+                side: THREE.DoubleSide
+            });
+            const disc = new THREE.Mesh(discGeometry, discMaterial);
+            disc.position.set(2, 0, 0);
+            disc.rotation.x = -Math.PI * 0.2;
+            scene.add(disc);
+
+            // Glow behind disc
+            const glowCanvas = document.createElement('canvas');
+            glowCanvas.width = 256;
+            glowCanvas.height = 256;
+            const glowCtx = glowCanvas.getContext('2d');
+            const glowGradient = glowCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
+            glowGradient.addColorStop(0, 'rgba(234, 88, 12, 0.8)');
+            glowGradient.addColorStop(0.4, 'rgba(234, 88, 12, 0.4)');
+            glowGradient.addColorStop(1, 'rgba(234, 88, 12, 0)');
+            glowCtx.fillStyle = glowGradient;
+            glowCtx.fillRect(0, 0, 256, 256);
+            const glowTexture = new THREE.CanvasTexture(glowCanvas);
+
+            const glowGeometry = new THREE.PlaneGeometry(discSize * 1.8, discSize * 1.8);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                map: glowTexture,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            glow.position.set(2, 0, -0.5);
+            scene.add(glow);
+
+            // Photo Planes
+            const heroTexture = textureLoader.load('hero-fry.jpg');
+            const heroPlane = new THREE.Mesh(
+                new THREE.PlaneGeometry(5, 3.5),
+                new THREE.MeshBasicMaterial({ map: heroTexture, transparent: true, opacity: 0 })
+            );
+            heroPlane.position.set(-3, 0, -2);
+            heroPlane.rotation.y = Math.PI * 0.15;
+            scene.add(heroPlane);
+
+            const spreadTexture = textureLoader.load('spread.jpg');
+            const spreadPlane = new THREE.Mesh(
+                new THREE.PlaneGeometry(6, 4),
+                new THREE.MeshBasicMaterial({ map: spreadTexture, transparent: true, opacity: 0 })
+            );
+            spreadPlane.position.set(4, 1, -5);
+            spreadPlane.rotation.y = -Math.PI * 0.2;
+            scene.add(spreadPlane);
+
+            const interiorTexture = textureLoader.load('interior.jpg');
+            const interiorPlane = new THREE.Mesh(
+                new THREE.PlaneGeometry(5.5, 3.8),
+                new THREE.MeshBasicMaterial({ map: interiorTexture, transparent: true, opacity: 0 })
+            );
+            interiorPlane.position.set(-5, -1, -8);
+            interiorPlane.rotation.y = Math.PI * 0.25;
+            scene.add(interiorPlane);
+
+            // Ember Particles
+            const particleCount = 600;
+            const positions = new Float32Array(particleCount * 3);
+            const velocities = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 50;
+                positions[i * 3 + 1] = Math.random() * 25 - 8;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+                velocities.push({
+                    y: Math.random() * 0.025 + 0.015,
+                    life: Math.random()
+                });
+            }
+
+            const particleGeometry = new THREE.BufferGeometry();
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            const spriteCanvas = document.createElement('canvas');
+            spriteCanvas.width = 32;
+            spriteCanvas.height = 32;
+            const spriteCtx = spriteCanvas.getContext('2d');
+            const spriteGradient = spriteCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            spriteGradient.addColorStop(0, 'rgba(234, 88, 12, 1)');
+            spriteGradient.addColorStop(0.5, 'rgba(234, 88, 12, 0.7)');
+            spriteGradient.addColorStop(1, 'rgba(234, 88, 12, 0)');
+            spriteCtx.fillStyle = spriteGradient;
+            spriteCtx.fillRect(0, 0, 32, 32);
+            const spriteTexture = new THREE.CanvasTexture(spriteCanvas);
+
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.12,
+                map: spriteTexture,
+                color: 0xEA580C,
+                transparent: true,
+                alphaTest: 0.01,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+
+            // Animation loop
+            let isPageVisible = true;
+
+            document.addEventListener('visibilitychange', () => {
+                isPageVisible = !document.hidden;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                if (!isPageVisible) return;
+
+                // Idle disc rotation
+                disc.rotation.z += 0.003;
+                glow.rotation.z += 0.003;
+
+                // Particle animation
+                const positions = particles.geometry.attributes.position.array;
+                for (let i = 0; i < particleCount; i++) {
+                    positions[i * 3 + 1] += velocities[i].y;
+
+                    if (positions[i * 3 + 1] > 20) {
+                        positions[i * 3 + 1] = -8;
+                        velocities[i].life = Math.random();
+                    }
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Lenis smooth scroll
+            const lenis = new Lenis({
+                lerp: 0.1,
+                duration: 1.2,
+                smoothWheel: true
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            // Main scroll timeline
+            ScrollTrigger.create({
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                onUpdate: (self) => {
+                    const progress = self.progress;
+
+                    // Timecode update
+                    let act = 'I';
+                    let actName = 'EMBER';
+
+                    if (progress < 0.2) {
+                        // Act I: Inside the fire (0-20%)
+                        act = 'I';
+                        actName = 'EMBER';
+                        const localP = progress / 0.2;
+                        camera.position.set(0, 0, 8 - localP * 3.5); // Dolly z≈8 to z≈4.5
+                        disc.position.set(2, 0, 0);
+                        disc.scale.set(1, 1, 1);
+                        disc.rotation.x = -Math.PI * 0.2;
+                        disc.rotation.z += 0.008; // Scroll rotation (accumulated over film)
+                        glow.position.set(2, 0, -0.5);
+                        glow.scale.set(1, 1, 1);
+                        warmLight.intensity = 4;
+                        warmLight.color.setHex(0xEA580C);
+                        scene.fog.color.setHex(0x0e0d0b);
+                        heroPlane.material.opacity = 0;
+                        spreadPlane.material.opacity = 0;
+                        interiorPlane.material.opacity = 0;
+                    } else if (progress < 0.5) {
+                        // Act II: The Fire (20-50%)
+                        act = 'II';
+                        actName = 'NOIR';
+                        const localP = (progress - 0.2) / 0.3;
+                        const angle = localP * (Math.PI * 0.7); // ~70° orbit
+                        const radius = 6;
+                        camera.position.set(Math.sin(angle) * radius, -0.5, Math.cos(angle) * radius + 4);
+                        camera.lookAt(0, 0, 0);
+                        disc.position.set(-2 * localP, 0, 0); // Drift left
+                        disc.scale.set(1 - localP * 0.3, 1 - localP * 0.3, 1 - localP * 0.3); // Dims
+                        disc.rotation.z += 0.006;
+                        glow.position.copy(disc.position);
+                        glow.position.z -= 0.5;
+                        glow.scale.copy(disc.scale);
+                        warmLight.intensity = 1.5 - localP * 0.5;
+                        warmLight.color.setHex(0x44403C);
+                        scene.fog.color.setHex(0x0C0A09);
+                        heroPlane.material.opacity = localP * 0.9; // Flame plate photo enters
+                        heroPlane.position.x = -3 + localP * 2;
+                        spreadPlane.material.opacity = 0;
+                        interiorPlane.material.opacity = 0;
+                    } else {
+                        // Act III: The Table (50-100%)
+                        act = 'III';
+                        actName = 'GOLDEN';
+                        const localP = (progress - 0.5) / 0.5;
+                        camera.position.set(4 - localP * 8, 1, -4 + localP * 8);
+                        camera.lookAt(0, 0, 0);
+                        disc.position.set(-2 + localP * 3, 2 + localP * 1, 2); // Returns smaller, orbiting above
+                        disc.scale.set(0.7, 0.7, 0.7);
+                        disc.rotation.z += 0.005;
+                        glow.position.copy(disc.position);
+                        glow.position.z -= 0.5;
+                        glow.scale.copy(disc.scale);
+                        warmLight.intensity = 2 + localP * 0.5;
+                        warmLight.color.setHex(0xFBBF24);
+                        scene.fog.color.setHex(0x27241F);
+                        heroPlane.material.opacity = Math.max(0, 0.9 - localP * 0.9);
+                        spreadPlane.material.opacity = localP * 0.85; // Spread photo
+                        spreadPlane.position.x = 4 - localP * 3;
+                        interiorPlane.material.opacity = Math.min(localP * 1.5, 0.75); // Interior photo at different depth
+                        interiorPlane.position.x = -5 + localP * 2;
+                    }
+
+                    const totalSeconds = Math.floor(progress * 180);
+                    const minutes = Math.floor(totalSeconds / 60);
+                    const seconds = totalSeconds % 60;
+                    const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                    timecode.textContent = `ACT ${act} — ${actName} — ${timeStr}`;
+                }
+            });
+
+            // Content animations
+            gsap.utils.toArray('.dish-card').forEach((card, i) => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    delay: i * 0.12,
+                    scrollTrigger: {
+                        trigger: '#signatures',
+                        start: 'top 70%'
+                    }
+                });
+            });
+
+            // 3D tilt on dish cards
+            if (window.innerWidth > 768) {
+                gsap.utils.toArray('.dish-card').forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = (y - centerY) / centerY * -10;
+                        const rotateY = (x - centerX) / centerX * 10;
+
+                        card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = '';
+                    });
+                });
+            }
+
+            gsap.utils.toArray('.menu-category').forEach((cat, i) => {
+                gsap.to(cat, {
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: i * 0.2,
+                    scrollTrigger: {
+                        trigger: '#menu',
+                        start: 'top 70%'
+                    }
+                });
+            });
+
+            gsap.to('.visit-container', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '#visit',
+                    start: 'top 70%'
+                }
+            });
+        } else {
+            // Fallback: no WebGL
+            gsap.registerPlugin(ScrollTrigger);
+
+            const lenis = new Lenis({
+                lerp: 0.1,
+                duration: 1.2,
+                smoothWheel: true
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.utils.toArray('.dish-card').forEach(card => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    }
+                });
+            });
+
+            gsap.utils.toArray('.menu-category').forEach(cat => {
+                gsap.to(cat, {
+                    opacity: 1,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: cat,
+                        start: 'top 80%'
+                    }
+                });
+            });
+
+            gsap.to('.visit-container', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '#visit',
+                    start: 'top 70%'
+                }
+            });
+        }
+    </script>
+</body>
+</html>
