@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Dehli Gola Kabab House — Since 1974 · Burns Road, Karachi</title>
+<meta name="description" content="Burns Road's famous gola & dhaga kababs since 1974. Live BBQ, family hall, open daily 11 AM – 2 AM. Order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0705; --bg2:#140b06; --panel:#1a0f08;
+  --cream:#f6ecdc; --muted:#c9b294; --dim:#8f7a5f;
+  --ember:#ff7a1a; --ember2:#ffb347; --gold:#e8b34b; --red:#c33d16;
+  --line:rgba(246,236,220,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bg);color:var(--cream);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ember);color:#140b06}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif}
+.wrap{width:min(1200px,92vw);margin:0 auto}
+#loadline{position:fixed;top:0;left:0;height:3px;width:100%;z-index:200;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--red),var(--ember),var(--gold))}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:16px 0;transition:background .4s,padding .4s}
+nav.scrolled{background:rgba(12,7,5,.86);backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:44px;height:44px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;color:var(--gold);font-size:19px;background:rgba(0,0,0,.35)}
+.brand b{font-family:'Fraunces',serif;font-size:19px;letter-spacing:.3px;line-height:1.05;display:block}
+.brand small{color:var(--gold);font-weight:800;font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;font-weight:700;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--cream)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;padding:13px 24px;border-radius:999px;border:1px solid transparent;transition:transform .25s,box-shadow .25s;will-change:transform}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:#22b358;color:#06130a;box-shadow:0 8px 30px rgba(34,179,88,.35)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(34,179,88,.45)}
+.btn-ghost{border-color:var(--line);color:var(--cream);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold)}
+.btn-nav{padding:10px 19px;font-size:13.5px}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;perspective:1100px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.18);filter:saturate(1.08) contrast(1.05)}
+.hero-shade{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(9,5,3,.88) 0%,rgba(9,5,3,.62) 44%,rgba(9,5,3,.18) 78%,rgba(9,5,3,.35) 100%),
+  linear-gradient(0deg,var(--bg) 2%,transparent 32%),
+  linear-gradient(180deg,rgba(9,5,3,.55),transparent 30%)}
+#embers{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-in{position:relative;z-index:3;width:min(1200px,92vw);margin:0 auto;padding:130px 0 90px}
+.hero .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;letter-spacing:3px;font-size:12px;text-transform:uppercase;border:1px solid rgba(232,179,75,.4);padding:8px 15px;border-radius:999px;background:rgba(0,0,0,.32)}
+.hero .kicker i{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);display:block}
+.hero h1{font-size:clamp(52px,9.2vw,118px);line-height:.94;font-weight:900;letter-spacing:-.5px;margin:24px 0 6px;text-shadow:0 6px 44px rgba(0,0,0,.55)}
+.hero h1 .thin{display:block;font-weight:500;font-size:clamp(30px,4.6vw,58px);color:var(--ember2);letter-spacing:.4px}
+.hero .urdu{font-size:clamp(19px,2.6vw,27px);color:var(--gold);margin:10px 0 2px;font-weight:600}
+.hero p.lede{max-width:520px;color:#ead9bd;font-size:clamp(15.5px,1.6vw,18px);line-height:1.65;margin:16px 0 26px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.chip{display:inline-flex;gap:8px;align-items:center;background:rgba(16,9,5,.66);border:1px solid var(--line);backdrop-filter:blur(6px);padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;color:var(--cream)}
+.chip .st{color:var(--gold)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.plate{position:absolute;z-index:2;right:clamp(-40px,4vw,70px);top:50%;width:clamp(250px,34vw,470px);aspect-ratio:1;transform:translateY(-50%);filter:drop-shadow(0 42px 54px rgba(0,0,0,.62));pointer-events:none}
+.plate img{width:100%;height:100%;animation:spin 70s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scrollcue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:4;color:var(--muted);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:800;text-align:center}
+.scrollcue::after{content:"";display:block;width:1px;height:42px;margin:8px auto 0;background:linear-gradient(var(--ember),transparent);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media(max-width:820px){
+  .hero-in{padding:118px 0 120px}
+  .plate{top:auto;bottom:92px;right:-52px;width:196px;transform:none;opacity:.96}
+  .brand b{font-size:15.5px;white-space:nowrap}
+  .brand small{letter-spacing:1.8px}
+  .btn-nav{padding:9px 15px;font-size:12.5px}
+}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:linear-gradient(90deg,var(--red),#93300f);border-block:1px solid rgba(255,179,71,.35);overflow:hidden;padding:13px 0;transform:rotate(-1.1deg) scale(1.02);position:relative;z-index:5}
+.marquee .track{display:flex;gap:0;width:max-content;animation:mq 30s linear infinite;white-space:nowrap;font-family:'Fraunces',serif;font-weight:700;font-size:17px;letter-spacing:1.6px;color:#ffe9c4}
+.marquee span{padding:0 16px}
+.marquee b{color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+section{position:relative}
+.sec{padding:110px 0}
+.eyebrow{color:var(--ember);font-weight:800;letter-spacing:3.2px;font-size:12px;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h2.title{font-size:clamp(34px,5.2vw,62px);font-weight:900;line-height:1.04;margin:16px 0 14px}
+.sub{color:var(--muted);font-size:16.5px;line-height:1.7;max-width:620px;font-weight:600}
+
+/* story / film */
+.film{height:340vh;position:relative}
+.film-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.film-media{position:absolute;inset:0}
+.film-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.32);will-change:transform}
+.film-shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(8,4,2,.34) 26%,rgba(8,4,2,.82) 100%),linear-gradient(0deg,var(--bg),transparent 26%,transparent 78%,var(--bg))}
+.film-cap{position:relative;z-index:2;text-align:center;padding:0 6vw;max-width:900px}
+.film-cap .step{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(880px,90vw);opacity:0}
+.film-cap .step:first-child{position:relative;left:auto;top:auto;transform:none;opacity:1}
+.film-cap h2{font-size:clamp(36px,6.4vw,76px);font-weight:900;line-height:1.03;text-shadow:0 8px 40px rgba(0,0,0,.7)}
+.film-cap p{color:#efdcba;font-size:clamp(15px,2vw,19px);font-weight:600;margin-top:14px;text-shadow:0 4px 22px rgba(0,0,0,.8)}
+.film-cap .big-num{font-family:'Fraunces',serif;color:var(--gold);font-size:clamp(58px,9vw,110px);font-weight:900;line-height:1;text-shadow:0 8px 40px rgba(0,0,0,.7)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:56px}
+.stat{background:var(--panel);padding:28px 22px;text-align:center}
+.stat b{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,40px);color:var(--cream);display:block}
+.stat b em{font-style:normal;color:var(--gold)}
+.stat span{color:var(--dim);font-size:12.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* signatures */
+.sig-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:54px}
+.card{position:relative;border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line);transform-style:preserve-3d;transition:border-color .3s}
+.card:hover{border-color:rgba(232,179,75,.5)}
+.card .ph{overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph img{transform:scale(1.07)}
+.card .bd{padding:20px 22px 24px}
+.card h3{font-size:23px;font-weight:700}
+.card p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:7px 0 14px;font-weight:600}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.price{font-family:'Fraunces',serif;font-size:21px;color:var(--gold);font-weight:700}
+.tag{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--ember2);border:1px solid rgba(255,122,26,.45);padding:5px 10px;border-radius:999px}
+.c-wide{grid-column:span 7}.c-side{grid-column:span 5}.c-half{grid-column:span 6}.c-third{grid-column:span 4}
+.c-wide .ph,.c-side .ph{height:320px}.c-half .ph{height:280px}.c-third .ph{height:240px}
+@media(max-width:820px){.c-wide,.c-side,.c-half,.c-third{grid-column:span 12}.c-wide .ph,.c-side .ph,.c-half .ph{height:250px}}
+
+/* menu */
+.menu-sec{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 18%,var(--bg2) 84%,var(--bg) 100%)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 64px;margin-top:50px}
+.mgroup h3{font-size:24px;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.mgroup h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.mitem{display:flex;align-items:baseline;gap:10px;padding:11px 2px;border-bottom:1px dashed rgba(246,236,220,.08)}
+.mitem .n{font-weight:700;font-size:15.5px}
+.mitem .d{color:var(--dim);font-size:12.5px;font-weight:700;white-space:nowrap}
+.mitem .dots{flex:1;border-bottom:2px dotted rgba(201,178,148,.35);transform:translateY(-4px)}
+.mitem .p{font-family:'Fraunces',serif;color:var(--cream);font-weight:700;font-size:16.5px;white-space:nowrap}
+.mitem .p small{color:var(--dim);font-family:'Manrope';font-size:11px;font-weight:800}
+@media(max-width:820px){.menu-grid{grid-template-columns:1fr}}
+
+/* place */
+.place-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:stretch;margin-top:50px}
+.place-ph{border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative;min-height:380px}
+.place-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.place-ph .cap{position:absolute;left:18px;bottom:18px;background:rgba(10,5,3,.78);backdrop-filter:blur(6px);border:1px solid var(--line);padding:10px 16px;border-radius:12px;font-weight:800;font-size:13.5px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+.fact .ic{font-size:21px;margin-bottom:9px}
+.fact h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:800;margin-bottom:7px}
+.fact p{font-weight:800;font-size:16.5px;line-height:1.45}
+.fact p small{display:block;color:var(--muted);font-weight:600;font-size:13.5px;margin-top:2px}
+@media(max-width:820px){.place-grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+
+/* order band */
+.order{background:radial-gradient(ellipse 70% 120% at 50% 0%,rgba(255,122,26,.22),transparent 60%),var(--panel);border-block:1px solid var(--line);text-align:center;padding:96px 0}
+.order h2{font-size:clamp(34px,5.6vw,64px);font-weight:900;line-height:1.05}
+.order p{color:var(--muted);font-weight:600;font-size:17px;margin:16px auto 30px;max-width:560px;line-height:1.7}
+.order .nums{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-weight:800;font-size:14.5px}
+.order .nums a{color:var(--gold)}
+
+/* footer */
+footer{padding:44px 0 110px;color:var(--dim)}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:30px}
+.foot b{color:var(--cream);font-family:'Fraunces',serif}
+.credit{font-size:13px;font-weight:700}
+.credit i{font-style:normal;color:var(--gold)}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:120;width:60px;height:60px;border-radius:50%;background:#22b358;display:grid;place-items:center;box-shadow:0 12px 34px rgba(34,179,88,.45);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:31px;height:31px;fill:#06130a}
+.reveal{will-change:transform,opacity}
+</style>
+</head>
+<body>
+<div id="loadline"></div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="mark">د</span>
+      <span><b>New Dehli Gola Kabab</b><small>Burns Road · Since 1974</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#story">Our Story</a><a href="#signatures">Signatures</a><a href="#menu">Menu</a><a href="#visit">Visit Us</a>
+    </div>
+    <a class="btn btn-wa btn-nav" href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"><img id="heroImg" src="hero-fry.jpg" alt="Beef Dhaga Kabab Fry — the signature dish"></div>
+  <div class="hero-shade"></div>
+  <canvas id="embers"></canvas>
+  <div class="plate" data-depth="14"><img src="plate-float.png" alt="Chicken Malai Boti plate"></div>
+  <div class="hero-in">
+    <span class="kicker reveal"><i></i> Burns Road Food Street · Karachi</span>
+    <h1 class="reveal">Gola Kabab<span class="thin">jo Karachi ko yaad hai</span></h1>
+    <div class="urdu reveal">نیو دہلی گولا کباب ہاؤس — سن 1974 سے</div>
+    <p class="lede reveal">For over 50 years, one name on Burns Road has meant real charcoal flavour — thread-soft dhaga kababs, crackling gola kababs and karahis straight off the koyla. This is that name.</p>
+    <div class="chips reveal">
+      <span class="chip"><span class="st">★ 4.3</span> Google · 1,300+ reviews</span>
+      <span class="chip"><span class="st">★ 4.8</span> foodpanda · 5,000+ reviews</span>
+      <span class="chip">Open Daily · 11 AM – 2 AM</span>
+    </div>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-wa" href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a class="btn btn-ghost" href="#menu">Explore the Menu</a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll</div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mqTrack"></div></div>
+
+<section class="film" id="story">
+  <div class="film-pin">
+    <div class="film-media"><img id="filmImg" src="spread.jpg" alt="A full table of kababs, botis and the signature fry at New Dehli Gola Kabab House"></div>
+    <div class="film-shade"></div>
+    <div class="film-cap">
+      <div class="step" data-step>
+        <div class="big-num">1974</div>
+        <p>One family, one Burns Road corner — serving Karachi for over five decades.</p>
+      </div>
+      <div class="step" data-step>
+        <h2>Har plate,<br>koylay ki aag se.</h2>
+        <p>Live BBQ over real charcoal. No shortcuts — the smoke is the signature.</p>
+      </div>
+      <div class="step" data-step>
+        <h2>The table Karachi<br>gathers around.</h2>
+        <p>Dhaga kabab fry, gola kabab, malai boti, koyla karahi — one mez, generations of regulars.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:30px">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>Since <em>1974</em></b><span>Burns Road Original</span></div>
+      <div class="stat"><b>4.3<em>★</em></b><span>1,300+ Google Reviews</span></div>
+      <div class="stat"><b>4.8<em>★</em></b><span>5,000+ foodpanda Reviews</span></div>
+      <div class="stat"><b>11–2</b><span>Open Daily · AM to AM</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="signatures" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow reveal">House Signatures</div>
+    <h2 class="title reveal">The plates that built<br>the name.</h2>
+    <p class="sub reveal">Fifty years of regulars keep coming back for the same five plates. Start here.</p>
+    <div class="sig-grid">
+      <article class="card tilt c-wide reveal">
+        <div class="ph"><img src="hero-fry.jpg" alt="Beef Dhaga Kabab Fry"></div>
+        <div class="bd">
+          <div class="row"><h3>Beef Dhaga Kabab Fry</h3><span class="tag">The Legend</span></div>
+          <p>Our signature fry — finely threaded beef dhaga, wok-tossed and crowned with fresh ginger. The plate Burns Road talks about.</p>
+          <div class="row"><span class="price">Rs 950</span><span class="tag" style="border-color:var(--line);color:var(--muted)">Serves 1</span></div>
+        </div>
+      </article>
+      <article class="card tilt c-side reveal">
+        <div class="ph"><img src="dish-3.jpg" alt="Beef Dhaga Kabab skewers"></div>
+        <div class="bd">
+          <div class="row"><h3>Beef Dhaga Kabab</h3><span class="tag">Charcoal</span></div>
+          <p>Hand-threaded, spice-bound and grilled slow over koyla until the edges char.</p>
+          <div class="row"><span class="price">Rs 825</span><span class="tag" style="border-color:var(--line);color:var(--muted)">2 Seekh</span></div>
+        </div>
+      </article>
+      <article class="card tilt c-half reveal">
+        <div class="ph"><img src="dish-5.jpg" alt="Chicken Malai Boti"></div>
+        <div class="bd">
+          <div class="row"><h3>Chicken Malai Boti</h3><span class="tag">Famous</span></div>
+          <p>Burns Road ka famous malai boti — cream-soft, mildly spiced, straight off the grill with raita and onions.</p>
+          <div class="row"><span class="price">Rs 920</span><span class="tag" style="border-color:var(--line);color:var(--muted)">2 Seekh</span></div>
+        </div>
+      </article>
+      <article class="card tilt c-half reveal">
+        <div class="ph"><img src="dish-4.jpg" alt="Beef Boti"></div>
+        <div class="bd">
+          <div class="row"><h3>Beef Boti</h3><span class="tag">Smoky</span></div>
+          <p>Tender beef cubes with a deep charcoal crust, served with cucumber, onion and lemon.</p>
+          <div class="row"><span class="price">Rs 910</span><span class="tag" style="border-color:var(--line);color:var(--muted)">2 Seekh</span></div>
+        </div>
+      </article>
+      <article class="card tilt c-wide reveal" style="grid-column:span 12">
+        <div class="ph" style="height:300px"><img src="dish-6.jpg" alt="Chandan Kabab skewers, sliced open"></div>
+        <div class="bd">
+          <div class="row"><h3>Chandan Kabab</h3><span class="tag">Juicy</span></div>
+          <p>Thick, juicy seekhs sliced open at the table — the inside stays soft, the outside carries the smoke.</p>
+          <div class="row"><span class="price">Rs 890</span><span class="tag" style="border-color:var(--line);color:var(--muted)">2 Seekh · 4 Pieces</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu-sec" id="menu">
+  <div class="wrap">
+    <div class="eyebrow reveal">Full Menu</div>
+    <h2 class="title reveal">Everything off the grill.</h2>
+    <p class="sub reveal">Straight from our kitchen menu — no surprises at the counter. Order any of it on WhatsApp.</p>
+    <div class="menu-grid">
+      <div class="mgroup reveal">
+        <h3>Bar B.Q</h3>
+        <div class="mitem"><span class="n">Beef Dhaga Kabab Fry</span><span class="d">Serves 1</span><span class="dots"></span><span class="p"><small>Rs</small> 950</span></div>
+        <div class="mitem"><span class="n">Chicken Dhaga Kabab Fry</span><span class="d">Serves 1</span><span class="dots"></span><span class="p"><small>Rs</small> 1,050</span></div>
+        <div class="mitem"><span class="n">Beef Dhaga Kabab</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 825</span></div>
+        <div class="mitem"><span class="n">Beef Bagher Dhaga Kabab</span><span class="dots"></span><span class="p"><small>Rs</small> 880</span></div>
+        <div class="mitem"><span class="n">Chicken Dhaga Kabab</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 828</span></div>
+        <div class="mitem"><span class="n">Beef Boti</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 910</span></div>
+        <div class="mitem"><span class="n">Chicken Boti</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 920</span></div>
+        <div class="mitem"><span class="n">Chicken Malai Boti</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 920</span></div>
+        <div class="mitem"><span class="n">Chicken Labnese Boti</span><span class="d">2 Seekh</span><span class="dots"></span><span class="p"><small>Rs</small> 920</span></div>
+        <div class="mitem"><span class="n">Chicken Reshmi Kabab</span><span class="d">2 Seekh · 4 Pcs</span><span class="dots"></span><span class="p"><small>Rs</small> 828</span></div>
+        <div class="mitem"><span class="n">Chandan Kabab</span><span class="d">2 Seekh · 4 Pcs</span><span class="dots"></span><span class="p"><small>Rs</small> 890</span></div>
+        <div class="mitem"><span class="n">Chicken Chatakh Boti</span><span class="d">Mayo Sauce</span><span class="dots"></span><span class="p"><small>Rs</small> 950</span></div>
+        <div class="mitem"><span class="n">Chicken Tikka</span><span class="d">1 Piece</span><span class="dots"></span><span class="p"><small>Rs</small> 670</span></div>
+        <div class="mitem"><span class="n">Mexican Tikka</span><span class="d">Mayo Garlic</span><span class="dots"></span><span class="p"><small>Rs</small> 760</span></div>
+        <div class="mitem"><span class="n">Chicken Chaanp</span><span class="d">1 Serve</span><span class="dots"></span><span class="p"><small>Rs</small> 600</span></div>
+      </div>
+      <div>
+        <div class="mgroup reveal">
+          <h3>Rolls</h3>
+          <div class="mitem"><span class="n">Chicken Malai Boti Roll</span><span class="dots"></span><span class="p"><small>Rs</small> 640</span></div>
+          <div class="mitem"><span class="n">Chicken Boti Roll</span><span class="dots"></span><span class="p"><small>Rs</small> 600</span></div>
+          <div class="mitem"><span class="n">Beef Boti Roll</span><span class="dots"></span><span class="p"><small>Rs</small> 520</span></div>
+          <div class="mitem"><span class="n">Beef Kabab Roll</span><span class="dots"></span><span class="p"><small>Rs</small> 450</span></div>
+        </div>
+        <div class="mgroup reveal" style="margin-top:34px">
+          <h3>Tandoor</h3>
+          <div class="mitem"><span class="n">Paratha</span><span class="dots"></span><span class="p"><small>Rs</small> 140</span></div>
+          <div class="mitem"><span class="n">Naan</span><span class="dots"></span><span class="p"><small>Rs</small> 40</span></div>
+        </div>
+        <div class="mgroup reveal" style="margin-top:34px">
+          <h3>Frozen Dessert</h3>
+          <div class="mitem"><span class="n">Special Matka Ice Cream</span><span class="dots"></span><span class="p"><small>Rs</small> 170</span></div>
+        </div>
+        <div class="reveal" style="margin-top:34px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px">
+          <h3 style="font-size:21px;color:var(--gold);margin-bottom:8px">Also on the koyla…</h3>
+          <p style="color:var(--muted);font-weight:600;font-size:15px;line-height:1.65">Our BBQ &amp; Koyla Karahi is a house speciality — ask for today's karahi when you order, plus full catering for your events.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" style="padding-top:30px">
+  <div class="wrap">
+    <div class="eyebrow reveal">Visit Us</div>
+    <h2 class="title reveal">Find us on Burns Road.</h2>
+    <div class="place-grid">
+      <div class="place-ph reveal">
+        <img src="interior.jpg" alt="New Dehli Gola Kabab House — the family hall on Burns Road">
+        <span class="cap">📍 The Family Hall · Burns Road Food Street</span>
+      </div>
+      <div class="facts">
+        <div class="fact reveal"><div class="ic">🕐</div><h4>Hours</h4><p>Open Daily<small>11:00 AM – 2:00 AM</small></p></div>
+        <div class="fact reveal"><div class="ic">📍</div><h4>Address</h4><p>Shahrah-e-Liaquat, Gari Khata<small>Burns Road, Karachi 74800</small></p></div>
+        <div class="fact reveal"><div class="ic">📞</div><h4>Call to Order</h4><p>0317 2555896<small>Order line: 0304 1401409</small></p></div>
+        <div class="fact reveal"><div class="ic">🔥</div><h4>At the House</h4><p>Live BBQ · Family Hall<small>Dine-Out Service · Valet Parking</small></p></div>
+        <a class="fact reveal" href="https://www.google.com/maps/search/?api=1&query=24.857266,67.0164024" target="_blank" rel="noopener" style="grid-column:span 2;display:flex;align-items:center;justify-content:space-between">
+          <span><h4 style="margin-bottom:4px">Directions</h4><p>Open in Google Maps</p></span><span style="font-size:24px;color:var(--gold)">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center">Skip the Queue</div>
+    <h2 class="reveal">Hungry? Order direct<br>on WhatsApp.</h2>
+    <p class="reveal">Send us your order and we'll keep it hot. Dine in at the family hall, take away, or get it delivered — straight from our grill to you.</p>
+    <a class="btn btn-wa reveal" style="font-size:16.5px;padding:17px 34px" href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener">Chat &amp; Order Now</a>
+    <div class="nums reveal"><span>Call: <a href="tel:+923172555896">0317 2555896</a></span><span>·</span><span>Order line: <a href="tel:+923041401409">0304 1401409</a></span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>New Dehli Gola Kabab House</b> · Burns Road, Karachi — serving since 1974.</div>
+    <div class="credit">Demo website crafted by <i>Corvix Studio</i></div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.7 29l7.3-1.5a11.9 11.9 0 0 0 4 .7c6.6 0 12-5.3 12-11.9S22.6 3 16 3Zm5.9 16.9c-.3.9-1.9 1.7-2.6 1.8-.7.1-1.5.2-5-1.1-4.2-1.7-6.9-6-7.1-6.3-.2-.3-1.7-2.3-1.7-4.3s1.1-3 1.5-3.4c.4-.4.9-.5 1.2-.5h.8c.3 0 .6 0 .9.8l1.3 3.1c.1.3.2.6 0 .9l-.6.9-.6.7c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1.9-2.2c.3-.3.5-.2.9-.1l3 1.4c.4.2.6.3.7.5 0 .1 0 .7-.2 1.2Z"/></svg>
+</a>
+
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script src="lenis.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  /* marquee content */
+  var words = ["DHAGA KABAB","GOLA KABAB","MALAI BOTI","KOYLA KARAHI","LIVE BBQ","SINCE 1974","BURNS ROAD"];
+  var html = "";
+  for (var r=0;r<2;r++) for (var i=0;i<words.length;i++) html += "<span>"+words[i]+"</span><b>✦</b>";
+  document.getElementById("mqTrack").innerHTML = html;
+
+  /* nav state */
+  var nav = document.getElementById("nav");
+  addEventListener("scroll", function(){ nav.classList.toggle("scrolled", scrollY>40); }, {passive:true});
+
+  /* ember particles (canvas, lightweight WebGL-style glow) */
+  var cv = document.getElementById("embers"), ctx = cv.getContext("2d"), W, H, P=[];
+  function size(){ W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight; }
+  size(); addEventListener("resize", size);
+  function mk(y){ return { x: Math.random()*W, y: (y===undefined? Math.random()*H : H+10), r: Math.random()*2.2+0.6, s: Math.random()*0.9+0.35, drift: Math.random()*0.7-0.35, a: Math.random()*0.55+0.25, hue: 18+Math.random()*26 }; }
+  for (var i=0;i<70;i++) P.push(mk());
+  (function loop(){
+    ctx.clearRect(0,0,W,H);
+    for (var i=0;i<P.length;i++){ var p=P[i]; p.y-=p.s; p.x+=p.drift+Math.sin(p.y*0.012)*0.3;
+      if (p.y<-12) P[i]=mk(1);
+      var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4.4);
+      g.addColorStop(0,"hsla("+p.hue+",100%,62%,"+p.a+")"); g.addColorStop(1,"hsla("+p.hue+",100%,50%,0)");
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4.4,0,7); ctx.fill(); }
+    requestAnimationFrame(loop);
+  })();
+
+  /* 3D tilt cards */
+  if (matchMedia("(pointer:fine)").matches){
+    document.querySelectorAll(".tilt").forEach(function(card){
+      card.addEventListener("pointermove", function(e){
+        var r = card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+        card.style.transform = "perspective(950px) rotateY("+(x*7)+"deg) rotateX("+(-y*7)+"deg) translateY(-3px)";
+      });
+      card.addEventListener("pointerleave", function(){ card.style.transform=""; });
+    });
+    /* hero mouse parallax */
+    var plate = document.querySelector(".plate"), hero = document.querySelector(".hero");
+    hero.addEventListener("pointermove", function(e){
+      var x = e.clientX/innerWidth-0.5, y = e.clientY/innerHeight-0.5;
+      plate.style.marginRight = (-x*22)+"px"; plate.style.marginTop = (-y*16)+"px";
+    });
+  }
+
+  if (!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Lenis smooth scroll wired into GSAP ticker */
+  var lenis = null;
+  if (window.Lenis){
+    lenis = new Lenis({ duration: 1.25, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click", function(e){ var id=a.getAttribute("href"); if(id.length>1 && document.querySelector(id)){ e.preventDefault(); lenis.scrollTo(id, {offset:-70}); } });
+    });
+  }
+
+  /* load progress line */
+  gsap.to("#loadline", { scaleX: 1, duration: 0.9, ease: "power2.out" });
+
+  /* hero intro + bg settle */
+  gsap.from(".hero .reveal", { y: 44, opacity: 0, duration: 1.1, stagger: 0.12, ease: "power3.out", delay: 0.15 });
+  gsap.from(".plate", { opacity: 0, scale: 0.86, duration: 1.4, ease: "power3.out", delay: 0.4 });
+  gsap.to("#heroImg", { scale: 1.02, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".plate", { yPercent: 26, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+
+  /* generic reveals */
+  gsap.utils.toArray("section .reveal, footer .reveal").forEach(function(el){
+    gsap.from(el, { y: 38, opacity: 0, duration: 0.95, ease: "power3.out",
+      scrollTrigger: { trigger: el, start: "top 88%" } });
+  });
+
+  /* film: image push-in + chapter crossfades */
+  var steps = gsap.utils.toArray("[data-step]");
+  var tl = gsap.timeline({ scrollTrigger: { trigger: ".film", start: "top top", end: "bottom bottom", scrub: 0.6 } });
+  tl.to("#filmImg", { scale: 1.04, ease: "none", duration: 3 }, 0);
+  /* chapters never overlap: each one fully leaves before the next enters */
+  tl.to(steps[0], { opacity: 0, y: -34, duration: 0.3, ease: "power1.in" }, 0.55);
+  tl.fromTo(steps[1], { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.92);
+  tl.to(steps[1], { opacity: 0, y: -34, duration: 0.3, ease: "power1.in" }, 1.62);
+  tl.fromTo(steps[2], { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 1.99);
+})();
+</script>
+</body>
+</html>
