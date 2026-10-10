@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Dehli Gola Kabab House | Since 1974 | Burns Road</title>
+    <meta name="description" content="Since 1974, New Dehli Gola Kabab House has served legendary BBQ on Burns Road, Karachi. Live BBQ, Family Hall, Koyla Karahi. Order now.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: #1C1917;
+            --color-on-primary: #FFFFFF;
+            --color-secondary: #44403C;
+            --color-on-secondary: #FFFFFF;
+            --color-accent: #A16207;
+            --color-on-accent: #FFFFFF;
+            --color-ember: #EA580C;
+            --color-background: #FAFAF9;
+            --color-foreground: #0C0A09;
+            --color-card: #FFFFFF;
+            --color-card-foreground: #0C0A09;
+            --color-muted: #E8ECF0;
+            --color-muted-foreground: #475569;
+            --color-border: #D6D3D1;
+            --color-ivory: #FAFAF9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--color-primary);
+            color: var(--color-ivory);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--color-accent);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Film grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('hero-fry.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 2;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-plate-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero-plate {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 60px rgba(234, 88, 12, 0.4));
+        }
+
+        .ember-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.4) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: 9;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0.95);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.05);
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            max-width: 400px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(161, 98, 7, 0.3);
+            border-radius: 16px;
+        }
+
+        .hero-since {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--color-accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 1.2;
+            color: var(--color-on-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero-urdu {
+            font-size: 20px;
+            color: var(--color-on-primary);
+            margin-bottom: 16px;
+            direction: rtl;
+        }
+
+        .hero-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--color-ivory);
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-on-primary);
+            background: transparent;
+            border: 1px solid var(--color-accent);
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(161, 98, 7, 0.4);
+        }
+
+        .hero-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Stats Row */
+        #stats {
+            position: relative;
+            padding: 80px 24px;
+            background: var(--color-primary);
+            border-top: 1px solid var(--color-accent);
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(161, 98, 7, 0.2);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(161, 98, 7, 0.2);
+        }
+
+        .stat-value {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--color-ivory);
+        }
+
+        /* Chapter Sections */
+        .chapter {
+            position: relative;
+            height: 150vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .chapter-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 2;
+        }
+
+        #chapter-1 .chapter-bg {
+            background-image: url('interior.jpg');
+            opacity: 0.6;
+        }
+
+        #chapter-2 .chapter-bg {
+            background: linear-gradient(135deg, rgba(28, 25, 23, 0.95), rgba(12, 10, 9, 0.98));
+        }
+
+        #chapter-3 .chapter-bg {
+            background-image: url('spread.jpg');
+            opacity: 0.5;
+        }
+
+        .ember-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .ember-particle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.3) 0%, transparent 70%);
+            filter: blur(40px);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .ember-particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .ember-particle:nth-child(2) { top: 50%; left: 70%; animation-delay: 2s; }
+        .ember-particle:nth-child(3) { top: 70%; left: 30%; animation-delay: 4s; }
+        .ember-particle:nth-child(4) { top: 30%; left: 80%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(0.9);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateY(-30px) scale(1.1);
+                opacity: 0.4;
+            }
+        }
+
+        .chapter-marker {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--color-accent);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .chapter-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+            padding: 0 24px;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .chapter-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 1.2;
+            color: var(--color-on-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        .chapter-body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-ivory);
+        }
+
+        /* Signature Dishes */
+        #signatures {
+            position: relative;
+            padding: 120px 24px;
+            background: var(--color-primary);
+        }
+
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dish-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--color-accent);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(60px);
+            cursor: pointer;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-8px) perspective(1000px) rotateX(2deg);
+            box-shadow: 0 20px 60px rgba(161, 98, 7, 0.3);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .dish-info {
+            padding: 24px;
+        }
+
+        .dish-name {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--color-on-primary);
+            margin-bottom: 8px;
+        }
+
+        .dish-badge {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .dish-descriptor {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            color: rgba(250, 249, 249, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .dish-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--color-ivory);
+        }
+
+        /* Menu Section */
+        #menu {
+            position: relative;
+            padding: 120px 24px;
+            background: #27241F;
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 48px;
+            color: var(--color-on-primary);
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(161, 98, 7, 0.2);
+            border-radius: 16px;
+            padding: 48px;
+        }
+
+        .menu-category {
+            opacity: 0;
+        }
+
+        .category-name {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(161, 98, 7, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            color: var(--color-on-primary);
+            flex: 1;
+        }
+
+        .item-meta {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            color: var(--color-muted-foreground);
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--color-accent);
+            white-space: nowrap;
+        }
+
+        /* Visit Section */
+        #visit {
+            position: relative;
+            padding: 80px 24px;
+            background: var(--color-primary);
+            overflow: hidden;
+        }
+
+        #visit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('interior.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .visit-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(161, 98, 7, 0.2);
+            border-radius: 16px;
+            padding: 48px;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+
+        .visit-column h3 {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 36px;
+            color: var(--color-on-primary);
+            margin-bottom: 24px;
+        }
+
+        .visit-column h4 {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--color-on-primary);
+            margin-bottom: 16px;
+        }
+
+        .visit-address {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--color-ivory);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .visit-hours {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .visit-features {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--color-ivory);
+            line-height: 1.8;
+        }
+
+        .contact-phone {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--color-on-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-phone:hover {
+            color: var(--color-accent);
+        }
+
+        .maps-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            margin-top: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-on-primary);
+            background: transparent;
+            border: 1px solid var(--color-accent);
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .maps-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(161, 98, 7, 0.4);
+        }
+
+        /* Order Band */
+        #order-band {
+            position: relative;
+            padding: 80px 24px;
+            background: linear-gradient(135deg, #EA580C, #C2410C);
+            text-align: center;
+        }
+
+        .order-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 40px;
+            color: var(--color-on-primary);
+            margin-bottom: 32px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--color-on-primary);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: subtlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            animation: none;
+        }
+
+        .whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            background: var(--color-foreground);
+            text-align: center;
+        }
+
+        .footer-name {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .footer-location {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--color-ivory);
+            margin-bottom: 32px;
+        }
+
+        .footer-credit {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-credit a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (min-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-plate-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            .ember-glow {
+                width: 320px;
+                height: 320px;
+            }
+
+            .chapter-title {
+                font-size: 40px;
+            }
+
+            .chapter-body {
+                font-size: 16px;
+            }
+
+            .chapter-marker {
+                top: 24px;
+                left: 24px;
+            }
+
+            .menu-title {
+                font-size: 36px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                padding: 32px;
+                gap: 32px;
+            }
+
+            .signatures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-title {
+                font-size: 32px;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .hero-bg,
+            .chapter-bg {
+                background-attachment: scroll !important;
+            }
+
+            #hero-plate,
+            .chapter-content,
+            .stat-card,
+            .dish-card,
+            .visit-container {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-plate-container">
+            <div class="ember-glow"></div>
+            <img id="hero-plate" src="plate-float.png" alt="Signature Kabab Plate">
+        </div>
+        <div class="hero-content">
+            <div class="hero-since">Since 1974</div>
+            <h1 class="hero-title">New Dehli Gola Kabab House</h1>
+            <div class="hero-urdu">نیو دہلی گولا کباب ہاؤس</div>
+            <p class="hero-tagline">Burns Road ka asal zauq</p>
+            <a href="#signatures" class="hero-cta">
+                Scroll to Explore
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Row -->
+    <section id="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">4.3★</div>
+                <div class="stat-label">1,300+ Google Reviews</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4.8★</div>
+                <div class="stat-label">5,000+ foodpanda orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Since 1974</div>
+                <div class="stat-label">50+ years, Burns Road</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 1: Heritage -->
+    <section id="chapter-1" class="chapter">
+        <div class="chapter-bg"></div>
+        <div class="chapter-marker">— ACT I</div>
+        <div class="chapter-content">
+            <h2 class="chapter-title">Fifty Years of Fire</h2>
+            <p class="chapter-body">Since 1974, New Dehli Gola Kabab House has been the heartbeat of Burns Road Food Street. Live BBQ. Family Hall. The aroma of koyla karahi drifting through Karachi nights. Every skewer carries five decades of craft.</p>
+        </div>
+    </section>
+
+    <!-- Chapter 2: Craft -->
+    <section id="chapter-2" class="chapter">
+        <div class="chapter-bg"></div>
+        <div class="ember-particles">
+            <div class="ember-particle"></div>
+            <div class="ember-particle"></div>
+            <div class="ember-particle"></div>
+            <div class="ember-particle"></div>
+        </div>
+        <div class="chapter-marker">— ACT II</div>
+        <div class="chapter-content">
+            <h2 class="chapter-title">Live BBQ. Koyla Fire.</h2>
+            <p class="chapter-body">Every kabab is threaded, seasoned, and grilled over live coals—the dhaga style that made us famous. No shortcuts. No compromises. Just fire, spice, and fifty years of knowing exactly when to flip the skewer.</p>
+        </div>
+    </section>
+
+    <!-- Chapter 3: The Feast -->
+    <section id="chapter-3" class="chapter">
+        <div class="chapter-bg"></div>
+        <div class="chapter-marker">— ACT III</div>
+        <div class="chapter-content">
+            <h2 class="chapter-title">The Table Awaits</h2>
+            <p class="chapter-body">Beef Dhaga Kabab Fry sizzling on branded plates. Malai Boti so tender it melts. Chandan Kabab skewers lined like gold. This is the Burns Road feast that has fed Karachi for half a century. Ready when you are.</p>
+        </div>
+    </section>
+
+    <!-- Signature Dishes -->
+    <section id="signatures">
+        <div class="signatures-grid">
+            <div class="dish-card">
+                <img class="dish-image" src="hero-fry.jpg" alt="Beef Dhaga Kabab Fry">
+                <div class="dish-info">
+                    <span class="dish-badge">The Legend</span>
+                    <h3 class="dish-name">Beef Dhaga Kabab Fry</h3>
+                    <div class="dish-price">Rs 950</div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img class="dish-image" src="dish-3.jpg" alt="Beef Dhaga Kabab">
+                <div class="dish-info">
+                    <h3 class="dish-name">Beef Dhaga Kabab</h3>
+                    <div class="dish-descriptor">2 Seekh</div>
+                    <div class="dish-price">Rs 825</div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img class="dish-image" src="dish-5.jpg" alt="Chicken Malai Boti">
+                <div class="dish-info">
+                    <span class="dish-badge">Burns Road ka famous</span>
+                    <h3 class="dish-name">Chicken Malai Boti</h3>
+                    <div class="dish-price">Rs 920</div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img class="dish-image" src="dish-4.jpg" alt="Beef Boti">
+                <div class="dish-info">
+                    <h3 class="dish-name">Beef Boti</h3>
+                    <div class="dish-descriptor">2 Seekh</div>
+                    <div class="dish-price">Rs 910</div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img class="dish-image" src="dish-6.jpg" alt="Chandan Kabab">
+                <div class="dish-info">
+                    <h3 class="dish-name">Chandan Kabab</h3>
+                    <div class="dish-descriptor">2 Seekh / 4 Pcs</div>
+                    <div class="dish-price">Rs 890</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Menu -->
+    <section id="menu">
+        <div class="menu-container">
+            <h2 class="menu-title">The Full Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3 class="category-name">Bar B.Q</h3>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Beef Dhaga Kabab Fry</div>
+                            <div class="item-meta">Serves 1</div>
+                        </div>
+                        <div class="item-price">Rs 950</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Dhaga Kabab Fry</div>
+                            <div class="item-meta">Serves 1</div>
+                        </div>
+                        <div class="item-price">Rs 1,050</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Beef Dhaga Kabab</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 825</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Beef Bagher Dhaga Kabab</div>
+                        <div class="item-price">Rs 880</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Dhaga Kabab</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 828</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Beef Boti</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 910</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Boti</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 920</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Malai Boti</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 920</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Labnese Boti</div>
+                            <div class="item-meta">2 Seekh</div>
+                        </div>
+                        <div class="item-price">Rs 920</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Reshmi Kabab</div>
+                            <div class="item-meta">2 Seekh/4 Pcs</div>
+                        </div>
+                        <div class="item-price">Rs 828</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chandan Kabab</div>
+                            <div class="item-meta">2 Seekh/4 Pcs</div>
+                        </div>
+                        <div class="item-price">Rs 890</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Chatakh Boti</div>
+                            <div class="item-meta">Mayo Sauce</div>
+                        </div>
+                        <div class="item-price">Rs 950</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Tikka</div>
+                            <div class="item-meta">1 Piece</div>
+                        </div>
+                        <div class="item-price">Rs 670</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Mexican Tikka</div>
+                            <div class="item-meta">Mayo Garlic</div>
+                        </div>
+                        <div class="item-price">Rs 760</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chicken Chaanp</div>
+                            <div class="item-meta">1 Serve</div>
+                        </div>
+                        <div class="item-price">Rs 600</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-name">Rolls</h3>
+                    <div class="menu-item">
+                        <div class="item-name">Chicken Malai Boti Roll</div>
+                        <div class="item-price">Rs 640</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Chicken Boti Roll</div>
+                        <div class="item-price">Rs 600</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Beef Boti Roll</div>
+                        <div class="item-price">Rs 520</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Beef Kabab Roll</div>
+                        <div class="item-price">Rs 450</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-name">Tandoor & Dessert</h3>
+                    <div class="menu-item">
+                        <div class="item-name">Paratha</div>
+                        <div class="item-price">Rs 140</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Naan</div>
+                        <div class="item-price">Rs 40</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-name">Special Matka Ice Cream</div>
+                        <div class="item-price">Rs 170</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="visit">
+        <div class="visit-container">
+            <div class="visit-grid">
+                <div class="visit-column">
+                    <h3>Visit the House</h3>
+                    <p class="visit-address">Shahrah-e-Liaquat, Gari Khata, Burns Road, Karachi 74800</p>
+                    <p class="visit-hours">Open daily 11:00 AM – 2:00 AM</p>
+                    <p class="visit-features">Live BBQ • Family Hall • Valet Parking • Dine-Out Service</p>
+                </div>
+                <div class="visit-column">
+                    <h4>Get in Touch</h4>
+                    <a href="tel:03172555896" class="contact-phone">0317 2555896</a>
+                    <a href="tel:03041401409" class="contact-phone">0304 1401409</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=24.857266,67.0164024" target="_blank" class="maps-btn">
+                        Get Directions
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Band -->
+    <section id="order-band">
+        <h2 class="order-title">Order ab. Seedha WhatsApp par.</h2>
+        <a href="https://wa.me/923172555896?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order." target="_blank" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            WhatsApp Order
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-name">New Dehli Gola Kabab House</div>
+        <div class="footer-location">Burns Road Food Street, Karachi • Since 1974</div>
+        <div class="footer-credit">Demo website crafted by <a href="https://corvix.netlify.app" target="_blank">Corvix Studio</a></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="lenis.min.js"></script>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Check reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Initialize Lenis smooth scroll
+        if (!prefersReducedMotion) {
+            const lenis = new Lenis({
+                lerp: 0.08,
+                duration: 1.2,
+                smoothWheel: true
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Connect Lenis to GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        // Progress Bar
+        ScrollTrigger.create({
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            onUpdate: (self) => {
+                document.getElementById('progress-bar').style.width = (self.progress * 100) + '%';
+            }
+        });
+
+        // Hero Plate Animation
+        if (!prefersReducedMotion) {
+            gsap.to('#hero-plate', {
+                scale: 1.2,
+                rotation: 15,
+                z: 40,
+                scrollTrigger: {
+                    trigger: '#hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.5
+                }
+            });
+
+            // Hero background parallax
+            gsap.to('.hero-bg', {
+                yPercent: 30,
+                scrollTrigger: {
+                    trigger: '#hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5
+                }
+            });
+        }
+
+        // Stats Cards Animation
+        const statCards = gsap.utils.toArray('.stat-card');
+        statCards.forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: i * 0.15,
+                scrollTrigger: {
+                    trigger: '#stats',
+                    start: 'top 70%'
+                }
+            });
+        });
+
+        // Chapter Animations
+        if (!prefersReducedMotion) {
+            // Chapter 1
+            const chapter1Content = document.querySelector('#chapter-1 .chapter-content');
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#chapter-1',
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            })
+            .to(chapter1Content, { opacity: 1, y: 0 })
+            .to(chapter1Content, { opacity: 0, y: -60 }, '+=0.5');
+
+            // Chapter 1 background zoom
+            gsap.to('#chapter-1 .chapter-bg', {
+                scale: 1.1,
+                scrollTrigger: {
+                    trigger: '#chapter-1',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5
+                }
+            });
+
+            // Chapter 2
+            const chapter2Content = document.querySelector('#chapter-2 .chapter-content');
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#chapter-2',
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            })
+            .to(chapter2Content, { opacity: 1, y: 0 })
+            .to(chapter2Content, { opacity: 0, y: -60 }, '+=0.5');
+
+            // Chapter 3
+            const chapter3Content = document.querySelector('#chapter-3 .chapter-content');
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#chapter-3',
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            })
+            .to(chapter3Content, { opacity: 1, y: 0 })
+            .to(chapter3Content, { opacity: 0, y: -60 }, '+=0.5');
+
+            // Chapter 3 background zoom
+            gsap.to('#chapter-3 .chapter-bg', {
+                scale: 1.15,
+                scrollTrigger: {
+                    trigger: '#chapter-3',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5
+                }
+            });
+        } else {
+            // Reduced motion: show all chapters
+            document.querySelectorAll('.chapter-content').forEach(content => {
+                content.style.opacity = '1';
+                content.style.transform = 'none';
+            });
+        }
+
+        // Signature Dishes Animation
+        const dishCards = gsap.utils.toArray('.dish-card');
+        dishCards.forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: '#signatures',
+                    start: 'top 70%'
+                }
+            });
+        });
+
+        // 3D Tilt Effect on Dish Cards (desktop only, not reduced motion)
+        if (!prefersReducedMotion && window.innerWidth > 768) {
+            dishCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / centerY * -8;
+                    const rotateY = (x - centerX) / centerX * 8;
+
+                    card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+        }
+
+        // Menu Animation
+        const menuCategories = gsap.utils.toArray('.menu-category');
+        gsap.to(menuCategories, {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#menu',
+                start: 'top 70%'
+            }
+        });
+
+        // Visit Section Animation
+        gsap.to('.visit-container', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: '#visit',
+                start: 'top 70%'
+            }
+        });
+
+        // Pause animations when sections are offscreen
+        if (!prefersReducedMotion) {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        const animations = ScrollTrigger.getAll().filter(st => {
+                            return st.trigger === entry.target;
+                        });
+                        animations.forEach(anim => {
+                            if (anim.animation) anim.animation.pause();
+                        });
+                    }
+                });
+            }, { threshold: 0 });
+
+            sections.forEach(section => observer.observe(section));
+        }
+    </script>
+</body>
+</html>
