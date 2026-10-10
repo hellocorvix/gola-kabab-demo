@@ -87,9 +87,9 @@
         }
 
         .hero-logo {
-            width: 96px;
+            width: 110px;
             height: auto;
-            margin: 0 auto 24px;
+            margin: 0 auto 28px;
             display: block;
             filter: drop-shadow(0 0 20px rgba(201, 150, 46, 0.8));
         }
@@ -1198,17 +1198,26 @@
                         const radius = 6;
                         camera.position.set(Math.sin(angle) * radius, -0.5, Math.cos(angle) * radius + 4);
                         camera.lookAt(0, 0, 0);
-                        disc.position.set(-2 * localP, 0, 0); // Drift left
-                        disc.scale.set(1 - localP * 0.3, 1 - localP * 0.3, 1 - localP * 0.3); // Dims
+
+                        // Disc clears UP-LEFT early (first 40% of act), then stays small and high
+                        const discClearPhase = Math.min(localP / 0.4, 1);
+                        disc.position.set(-3 * discClearPhase, 3.5 * discClearPhase, 1 * discClearPhase);
+                        disc.scale.set(1 - discClearPhase * 0.65, 1 - discClearPhase * 0.65, 1 - discClearPhase * 0.65);
                         disc.rotation.z += 0.006;
                         glow.position.copy(disc.position);
                         glow.position.z -= 0.5;
                         glow.scale.copy(disc.scale);
+                        glow.material.opacity = 1 - discClearPhase * 0.6;
+
+                        // Hero flame plate photo sweeps in LARGE after disc clears (40-100% of act)
+                        const heroPhase = Math.max((localP - 0.4) / 0.6, 0);
+                        heroPlane.material.opacity = heroPhase * 0.95;
+                        heroPlane.position.set(-1, 0, 1);
+                        heroPlane.scale.set(1.4, 1.4, 1.4); // 60%+ viewport width
+
                         warmLight.intensity = 1.5 - localP * 0.5;
                         warmLight.color.setHex(0x44403C);
                         scene.fog.color.setHex(0x0C0A09);
-                        heroPlane.material.opacity = localP * 0.9; // Flame plate photo enters
-                        heroPlane.position.x = -3 + localP * 2;
                         spreadPlane.material.opacity = 0;
                         interiorPlane.material.opacity = 0;
                     } else {
@@ -1218,20 +1227,34 @@
                         const localP = (progress - 0.5) / 0.5;
                         camera.position.set(4 - localP * 8, 1, -4 + localP * 8);
                         camera.lookAt(0, 0, 0);
-                        disc.position.set(-2 + localP * 3, 2 + localP * 1, 2); // Returns smaller, orbiting above
-                        disc.scale.set(0.7, 0.7, 0.7);
+
+                        // Disc stays small and high throughout Act III, orbiting gently
+                        disc.position.set(-3 + localP * 2, 4, 3);
+                        disc.scale.set(0.5, 0.5, 0.5);
                         disc.rotation.z += 0.005;
                         glow.position.copy(disc.position);
                         glow.position.z -= 0.5;
                         glow.scale.copy(disc.scale);
+                        glow.material.opacity = 0.3;
+
+                        // Hero plate fades out early
+                        heroPlane.material.opacity = Math.max(0, 1 - localP * 3);
+
+                        // Spread photo solo moment (first 50% of act)
+                        const spreadPhase = Math.min(localP / 0.5, 1);
+                        spreadPlane.material.opacity = spreadPhase < 0.85 ? spreadPhase * 0.9 : Math.max(0, 0.9 - (spreadPhase - 0.85) * 3);
+                        spreadPlane.position.set(0, 0, 0);
+                        spreadPlane.scale.set(1.3, 1.3, 1.3);
+
+                        // Interior photo solo moment (second 50% of act)
+                        const interiorPhase = Math.max((localP - 0.5) / 0.5, 0);
+                        interiorPlane.material.opacity = interiorPhase * 0.85;
+                        interiorPlane.position.set(-1, -0.5, 2);
+                        interiorPlane.scale.set(1.25, 1.25, 1.25);
+
                         warmLight.intensity = 2 + localP * 0.5;
                         warmLight.color.setHex(0xFBBF24);
                         scene.fog.color.setHex(0x27241F);
-                        heroPlane.material.opacity = Math.max(0, 0.9 - localP * 0.9);
-                        spreadPlane.material.opacity = localP * 0.85; // Spread photo
-                        spreadPlane.position.x = 4 - localP * 3;
-                        interiorPlane.material.opacity = Math.min(localP * 1.5, 0.75); // Interior photo at different depth
-                        interiorPlane.position.x = -5 + localP * 2;
                     }
 
                     const totalSeconds = Math.floor(progress * 180);
